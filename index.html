@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #result {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Temperature Converter</h2>
+
+    <label for="fahrenheit">Enter Temperature in Fahrenheit:</label>
+    <input type="text" id="fahrenheit" placeholder="Enter temperature" oninput="convertTemperature()">
+    <br>
+
+    <button onclick="convertTemperature()">Convert to Celsius</button>
+
+    <div id="result"></div>
+
+    <script>
+        function convertTemperature() {
+            // Get the Fahrenheit input value
+            var fahrenheitInput = document.getElementById('fahrenheit').value;
+
+            // Check if the input is a valid number
+            if (!isNaN(fahrenheitInput)) {
+                // Convert Fahrenheit to Celsius
+                var celsiusResult = (fahrenheitInput - 32) * (5/9);
+
+                // Display the result
+                document.getElementById('result').innerHTML = 'Temperature in Celsius: ' + celsiusResult.toFixed(2) + ' °C';
+            } else {
+                // Display an error message for invalid input
+                document.getElementById('result').innerHTML = 'Please enter a valid temperature';
+            }
+        }
+    </script>
+
+</body>
+</html>
